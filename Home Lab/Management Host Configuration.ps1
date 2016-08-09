@@ -25,6 +25,7 @@ $nfsDS = "NFS01"
 $nfsHost = "10.0.0.0"
 $nfsPath = "/volume1/NFS-1"
 $dns1 = "10.0.0.0"
+$hostname = "esxi01"
 $domain = "vcarbs.com"
 $ntp1 = "pool.ntp.org"
 
@@ -83,7 +84,7 @@ Get-VMHostService -VMHost $vmHost | ?{$_.Label -eq "SSH"} | Set-VMHostService -P
 Get-VMHostService -VMHost $vmHost | ?{$_.Label -eq "SSH"} | Start-VMHostService -Confirm:$false
 
 # Set DNS and NTP
-Get-VMHostNetwork | Set-VMHostNetwork -DomainName $domain -DnsAddress $dns1
+Get-VMHostNetwork | Set-VMHostNetwork -HostName $hostname -DomainName $domain -DnsAddress $dns1
 Add-VMHostNTPServer -NtpServer $ntp1
 Get-VMHostService -VMHost $vmHost | where{$_.Key -eq "ntpd"} | Set-VMHostService -Policy on
 Get-VMHostService -VMHost $vmHost | where{$_.Key -eq "ntpd"} | Restart-VMHostService -Confirm:$false
