@@ -1,0 +1,19 @@
+# Author: Nick Carbone
+# Description: Create a new cluster in vCenter
+# Usage: ansible-playbook vcenter_cluster.yml
+---
+  hosts: localhost
+  vars:
+   - esxihosts:
+     - 10.0.0.0
+  tasks:
+
+   - name: Create vCenter Cluster
+     local_action:
+       module: vmware_cluster
+       hostname: 10.0.0.0
+       username: administrator
+       password: password
+       validate_certs: False
+       datacenter_name: Datacenter_Name
+       cluster_name: Cluster_Name

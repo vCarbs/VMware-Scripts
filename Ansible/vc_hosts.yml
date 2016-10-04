@@ -1,0 +1,24 @@
+# Author: Nick Carbone
+# Description: Add an ESXi host to vCenter
+# Usage: ansible-playbook vc_hosts.yml
+---
+  hosts: localhost
+  vars:
+   - esxihosts:
+     - 10.0.0.0
+  tasks:
+
+   - name: Add host to vCenter
+     local_action:
+       module: vmware_host
+       hostname: 10.0.0.0
+       username: administrator
+       password: password
+       validate_certs: False
+       datacenter_name: DC_Name
+       cluster_name: Cluster_Name
+       esxi_hostname: 10.0.0.0
+       esxi_username: root
+       esxi_password: password
+       validate_certs: False
+       state: present

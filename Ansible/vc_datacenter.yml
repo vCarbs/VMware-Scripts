@@ -1,0 +1,18 @@
+# Author: Nick Carbone
+# Description: Create a new datacenter in vCenter
+# Usage: ansible-playbook vc_datacenter.yml
+---
+  hosts: localhost
+  vars:
+   - esxihosts:
+     - 10.0.0.0
+  tasks:
+
+   - name: Create vCenter DC
+     local_action:
+       module: vmware_datacenter
+       hostname: 10.0.0.0
+       username: administrator
+       password: password
+       validate_certs: False
+       datacenter_name: New_DC_Name
