@@ -1,10 +1,10 @@
-$vscServer = ""
-$vmToClone = ""
+$vscServer = "vsc01"
+$vmToClone = "myVM"
 $netappParentSID = "xxx3412"
 $netappDestinationSID = "xxx3412"
 $svm = "NAS"
 $destDatastoreName = "ds01"
-$esxHost = ""
+$esxHost = "esx01"
 $vmdkFormat = "SAME"
 $memoryMB = 2048
 $vCPU = 1
