@@ -1,13 +1,13 @@
-$vscServer = ""
-$vmToClone = ""
-$netappParentSID = "xxx3412"
-$netappDestinationSID = "xxx3412"
-$svm = "NAS"
-$destDatastoreName = "ds01"
-$esxHost = ""
-$vmdkFormat = "SAME"
-$memoryMB = 2048
-$vCPU = 1
+$vscServer = "" #NetApp Virtual Storage Console IP or Hostname
+$vmToClone = "" #vSphere VM to clone
+$netappParentSID = "xxx3412" #NetApp Array Parent SID
+$netappDestinationSID = "xxx3412" #NetApp Array Destination SID
+$svm = "NAS" #SVM that hosts the vSphere datastore
+$destDatastoreName = "ds01" #vSphere datastore name
+$esxHost = "" #ESXi host for VM provisioning
+$vmdkFormat = "SAME" #VMDK format
+$memoryMB = 2048 #VM memory size in MB
+$vCPU = 1 #VM vCPU
 #cloneName = [Edit this in the array workflow.]
 #numberOfVMs [Edit this in the array workflow. 1-100]
 
@@ -24,4 +24,13 @@ $nameArray = array
 
 Connect-VscServer -Server $vscServer
 
-New-VscClone -virtualMachineName $vmToClone -parentStorageSystemId $netappParentSID -destStorageSystemId $netappDestinationSID -svm $svm -datastoreName $destDatastoreName -destinationHostName $esxHost -diskFormat $vmdkFormat -memorySizeInMb $memoryMB -newCloneNamesArray $nameArray -virtualProcessors $vCPU
+New-VscClone -virtualMachineName $vmToClone `
+    -parentStorageSystemId $netappParentSID `
+    -destStorageSystemId $netappDestinationSID `
+    -svm $svm `
+    -datastoreName $destDatastoreName `
+    -destinationHostName $esxHost `
+    -diskFormat $vmdkFormat `
+    -memorySizeInMb $memoryMB `
+    -newCloneNamesArray $nameArray `
+    -virtualProcessors $vCPU
