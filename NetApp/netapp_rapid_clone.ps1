@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 $vscServer = "" #NetApp Virtual Storage Console IP or Hostname
 $vmToClone = "" #vSphere VM to clone
 $netappParentSID = "xxx3412" #NetApp Array Parent SID
