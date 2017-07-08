@@ -8,21 +8,6 @@ $esxHost = "" #ESXi host for VM provisioning
 $vmdkFormat = "SAME" #VMDK format
 $memoryMB = 2048 #VM memory size in MB
 $vCPU = 1 #VM vCPU
-=======
-$vscServer = "vsc01"
-$vmToClone = "myVM"
-$netappParentSID = "xxx3412"
-$netappDestinationSID = "xxx3412"
-$svm = "NAS"
-$destDatastoreName = "ds01"
-$esxHost = "esx01"
-$vmdkFormat = "SAME"
-$memoryMB = 2048
-$vCPU = 1
->>>>>>> origin/master
-#cloneName = [Edit this in the array workflow.]
-#numberOfVMs [Edit this in the array workflow. 1-100]
-
 
 workflow array {
 	foreach -parallel ($_ in 1..5) {
