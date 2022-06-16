@@ -22,9 +22,9 @@ $DstCompute = Get-HCXContainer -Name Compute-ResourcePool  -Site $HcxDstSite
 
 $DstDatastore = Get-HCXDatastore -Name WorkloadDatastore -Site $HcxDstSite
 
-$SrcNetwork = Get-HCXNetwork -Name $vmNetworkSource -type DistributedVirtualPortgroup -Site $HcxSrcSite
+$SrcNetwork = Get-HCXNetwork -Name $vmNetworkSource -Site $HcxSrcSite
 
-$DstNetwork = Get-HCXNetwork -Name $vmNetworkDestination -type NsxtSegment -Site $HcxDstSite
+$DstNetwork = Get-HCXNetwork -Name $vmNetworkDestination -Site $HcxDstSite
 
 $NetworkMapping = New-HCXNetworkMapping -SourceNetwork $SrcNetwork -DestinationNetwork $DstNetwork
 
